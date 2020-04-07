@@ -3,10 +3,11 @@ from modules import getOptions, AutoRequest
 
 def parse_string_to_dict(str, default={}):
     updated_dict = {}
-    splitted_str = str.split('&')
-    for value in splitted_str:
-        item = value.split('=')
-        updated_dict[item[0]] = item[1]
+    if str:
+        splitted_str = str.split('&')
+        for value in splitted_str:
+            item = value.split('=')
+            updated_dict[item[0]] = item[1]
 
     return updated_dict if bool(updated_dict) else default
 
